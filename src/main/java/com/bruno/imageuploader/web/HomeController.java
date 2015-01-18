@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 import static com.bruno.imageuploader.web.UtilController.checkImagesNumberLimit;
 
@@ -33,6 +36,16 @@ public class HomeController {
         return "upload";
     }
 
+
+
+
+    @ExceptionHandler(value = Exception.class)
+    public String defaultErrorHandler(Model model, Exception e) throws Exception {
+
+        model.addAttribute("error",e);
+
+        return "error";
+    }
 
 
 

@@ -49,6 +49,7 @@ public class ImageUploaderController {
 
         try {
             byte[] image = service.loadImage(imageId);
+
             ByteArrayInputStream bis = new ByteArrayInputStream(image);
             OutputStream out = response.getOutputStream();
             IOUtils.copy(bis, out);

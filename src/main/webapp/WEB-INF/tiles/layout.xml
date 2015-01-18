@@ -20,6 +20,9 @@
 
     </definition>
     <definition name="login"  template="/WEB-INF/jsp/login.jsp" />
+    <definition name="error" extends="base.definition" >
+        <put-attribute name="body" value="/WEB-INF/jsp/error.jsp" />
 
+    </definition>
 
 </tiles-definitions>
