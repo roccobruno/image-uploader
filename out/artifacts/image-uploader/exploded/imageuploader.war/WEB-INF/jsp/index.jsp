@@ -1,1 +1,0 @@
-<p> Hello <%= request.getRemoteUser() %>  </p>
