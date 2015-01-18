@@ -4,34 +4,20 @@ import java.util.Arrays;
 
 public class Image {
 
-    private final String caption;
-    private final String altTag;
     private final byte[] file;
-    private final String fileName;
+
+    private final ImageMetadata metadata;
 
 
-    private Image(String caption, String altTag, byte[] file, String fileName) {
-        this.caption = caption;
-        this.altTag = altTag;
+    private Image(ImageMetadata metadata, byte[] file) {
+        this.metadata = metadata;
         this.file = file;
-        this.fileName = fileName;
-    }
-
-    public String getCaption() {
-        return caption;
-    }
-
-    public String getAltTag() {
-        return altTag;
     }
 
     public byte[] getFile() {
         return file;
     }
 
-    public String getFileName() {
-        return fileName;
-    }
 
     public static class ImageBuilder {
 
@@ -61,18 +47,20 @@ public class Image {
         }
 
         public Image build() {
-            return new Image(caption,altTag,file,fileName);
+            return new Image(new ImageMetadata(altTag,caption,fileName),file);
         }
 
+    }
+
+    public ImageMetadata getMetadata() {
+        return metadata;
     }
 
     @Override
     public String toString() {
         return "Image{" +
-                "caption='" + caption + '\'' +
-                ", altTag='" + altTag + '\'' +
-                ", file=" + Arrays.toString(file) +
-                ", fileName='" + fileName + '\'' +
+                "file=" + Arrays.toString(file) +
+                ", metadata=" + metadata +
                 '}';
     }
 
@@ -83,20 +71,16 @@ public class Image {
 
         Image image = (Image) o;
 
-        if (altTag != null ? !altTag.equals(image.altTag) : image.altTag != null) return false;
-        if (caption != null ? !caption.equals(image.caption) : image.caption != null) return false;
         if (!Arrays.equals(file, image.file)) return false;
-        if (fileName != null ? !fileName.equals(image.fileName) : image.fileName != null) return false;
+        if (metadata != null ? !metadata.equals(image.metadata) : image.metadata != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = caption != null ? caption.hashCode() : 0;
-        result = 31 * result + (altTag != null ? altTag.hashCode() : 0);
-        result = 31 * result + (file != null ? Arrays.hashCode(file) : 0);
-        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
+        int result = file != null ? Arrays.hashCode(file) : 0;
+        result = 31 * result + (metadata != null ? metadata.hashCode() : 0);
         return result;
     }
 }

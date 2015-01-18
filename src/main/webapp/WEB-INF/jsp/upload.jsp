@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
 
     function showSecondForm() {
@@ -71,13 +72,22 @@
                                     onclick="showSecondForm()" value="Add another image"></div>
 
     <div class="form-group" style="float: right">
-        <div>
-                ${success}
+        <div style="margin-bottom: 5px">
+                <a href="/images"> ${success}</a>
         </div>
 
         <div style="color: red">
                 ${error}
         </div>
-        <button class="btn btn-lg btn-primary btn-block" style="width: 90px !important;float: right" type="submit"> Upload</button>
+
+        <c:if test="${permitted}">
+         <button class="btn btn-lg btn-primary btn-block" style="width: 90px !important;float: right" type="submit"> Upload</button>
+         </c:if>
+        <c:if test="${!permitted}">
+            <span style="color: red">
+            <spring:message key="upload.image.errors.limit.reached"/>
+                </span>
+
+                </c:if>
     </div>
 </form:form>

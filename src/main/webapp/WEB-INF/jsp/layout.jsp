@@ -82,8 +82,9 @@
     <div class="header">
         <nav>
             <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation" class="active"><a href="/">Home</a></li>
                 <li role="presentation"><a href="/logout">Logout</a></li>
+                <li role="presentation"><a href="/images">See Images</a></li>
 
             </ul>
         </nav>

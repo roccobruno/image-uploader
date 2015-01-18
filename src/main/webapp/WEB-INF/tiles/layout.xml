@@ -14,6 +14,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/upload.jsp" />
 
     </definition>
+
+    <definition name="view_images" extends="base.definition" >
+        <put-attribute name="body" value="/WEB-INF/jsp/view_images.jsp" />
+
+    </definition>
     <definition name="login"  template="/WEB-INF/jsp/login.jsp" />
 
 

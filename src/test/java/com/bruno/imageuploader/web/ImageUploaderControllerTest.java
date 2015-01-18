@@ -30,7 +30,7 @@ public class ImageUploaderControllerTest {
         BindingResult result = mock(BindingResult.class);
         ModelMap model = new ExtendedModelMap();
 
-        ImageUploaderController controller = new ImageUploaderController(validator,service);
+        ImageUploaderController controller = new ImageUploaderController(validator,service,2);
 
         ImageUploadForm form = buildMockForm();
 
