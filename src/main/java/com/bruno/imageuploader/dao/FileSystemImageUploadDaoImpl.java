@@ -97,11 +97,12 @@ public class FileSystemImageUploadDaoImpl implements ImageUploadDao {
 
     @Override
     public void deleteImage(String fileName) throws IOException {
-        Files.delete(Paths.get(buildPathToImageFile(location,fileName)));
-        Files.delete(Paths.get(buildPathToImageMetadataFile(location,fileName)));
-        Files.delete(Paths.get(buildPathToImageDirector(location,fileName)));
-        Files.delete(Paths.get(buildPathToFileDirector(location,fileName)));
+        Files.deleteIfExists(Paths.get(buildPathToImageFile(location,fileName)));
+        Files.deleteIfExists(Paths.get(buildPathToImageMetadataFile(location,fileName)));
+        Files.deleteIfExists(Paths.get(buildPathToImageDirector(location,fileName)));
+        Files.deleteIfExists(Paths.get(buildPathToFileDirector(location,fileName)));
     }
+
 
     private void saveMetadata(Image image,String fileName) throws IOException {
         JSONObject obj = new JSONObject();
