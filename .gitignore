@@ -20,6 +20,7 @@ MANIFEST.MF
 
 # Target directories
 build/
+out/
 classes/
 
 # logs
