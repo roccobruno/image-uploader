@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.10.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'spring-boot'
+
+apply from: 'dependencies.gradle'
+
+jar {
+    baseName = 'image-uploader'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+//dependencies {
+//    // tag::jetty[]
+//
+//    compile("org.springframework.boot:spring-boot-starter-jetty")
+//    // end::jetty[]
+//    // tag::actuator[]
+//    compile("org.springframework.boot:spring-boot-starter-actuator")
+//    // end::actuator[]
+//    testCompile("junit:junit")
+//}
+
+war {
+    archiveName = "imageuploader.war"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}

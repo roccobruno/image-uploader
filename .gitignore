@@ -1,0 +1,29 @@
+# Mac preview files
+.DS_Store
+
+# IntelliJ project files
+*.iml
+*.ipr
+*.iws
+.idea
+*.idea
+.idea*
+.idea/
+.gradle/
+
+# Eclipse project files
+.project
+.springBeans
+.classpath
+MANIFEST.MF
+.settings/
+
+# Target directories
+build/
+classes/
+
+# logs
+logs/
+
+# generated files
+bosston.spec
